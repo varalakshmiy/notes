@@ -1,0 +1,135 @@
+Regions and AZ
+
+HYD -> Region
+North HYD -> AZ-1
+South HYD -> AZ-2
+
+Region has atleast 2 or many
+
+us-east-1 -> N.Virginia -> cheapest region, new services are going to be launched here
+
+latency -> may be high, we can't notice
+
+6AZ, 2AZ
+
+order server, install OS, Power connection, Network, AC, Physical security, storage, etc...
+
+Migrate to cloud
+
+IP enabled device...
+
+OS -> Embedded Linux -> Bridge between user and hardware
+RAM
+HD
+Processor
+
+Windows vs Linux
+================
+User interface is heavy in windows -> slow, Linux is super speed
+Linux is more secure than windows
+	Low power
+	Low bandwidth
+	Low ram
+	Long running servers
+	Linux is open source -> almost free
+	
+Linux -> Kernel
+Linus Torvalds -> Git, Linux
+
+IBM BIOS(PC), Server(Hardware+OS) -> Unix
+
+Hardware+Software -> Tight coupling
+Dell ->
+
+Linux -> using C language from the scratch -> Unix Principles
+
+Kernel -> like heart and brain(Hardware interaction)
+Linux is kernel
+
+Oracle, Redhat, Debian, etc. -> distributions/flavours
+99% same
+1% 
+
+Opensource -> community support
+Enterprise -> support, if problem comes, they join our and resolve the issue asap
+
+Redhat Enterprise Linux -> RHEL == centos == AWS Linux == fedora ==> RedHat family
+
+AWS Linux 2023 -> 
+Redhat image
+
+Authentication and Firewall
+===========================
+
+1. What you know -> username and password
+2. What you have -> RSA Token, Authenticators, Public key and private key etc..
+3. What you are -> Retina, plam, fingerprint, etc..
+
+ssh-keygen -f <file-name> -> it will generate two keys. public and private
+
+git -> interact with git repos, mini linux(we can use some linux commands in windows)
+
+pwd -> present working directory
+
+/c/Users/siva
+
+/c/Users/ramesh
+
+C:\devops\daws-90s -> windows format
+/c/devops/daws-90s -> linux format
+
+cd -> change directory
+
+Firewall -> authorised persons only will have access
+
+inbound/ingress -> incoming traffic -> we check and allow
+outbound/egress -> outgoing traffic -> usually we allow egress traffic everyone
+
+SSH -> Secure shell -> protocol to connect Linux servers terminal access
+
+http -> hyper text transfer protocol
+https, ftp, ssh, mysql, smtp, dhcp, udp, tcp, etc...
+
+Connection/Communication between multiple computers
+
+https://facebook.com:443 -> facebook DB
+http://facebook.com:80
+
+0-65,535 = 65,536 ports
+
+protocol, ip, port number, authentication
+
+ssh facebook server -> admin access
+
+ssh -> 22
+
+firewall/security group -> SSH 22 allow 0.0.0.0/0 (anyone can connect)
+
+ssh -i <private-key> ec2-user@IP-address
+
+1. read the description of error
+2. then search in google, gpt
+3. put in slack
+4. join qa sessions
+
+/home/<user-name> -> ec2-user -> AWS default user
+
+command -> understand the usage
+
+command <options> <inputs>
+-a -> single char -> short version
+--all -> all information
+
+2 types of users
+1. normal user -> $
+2. admin user -> #
+
+sudo su -> super user
+
+absolute path -> from starting
+relative path -> from where you are
+
+/c/devops/daws-90s -> absolute path
+daws-90s/daws-90s
+
+Linux commands
