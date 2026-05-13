@@ -1,0 +1,139 @@
+DNS
+======
+Domain name system
+
+Domain provider/registars -> Godaddy, Hostinger, AWS, tk, etc...
+godaddy -> plan for perm domain. mostly same cost for all years
+hostinger -> temp domain. 1st year cost is very less, but 2nd year 5000
+
+hostinger.in
+
+3800 /- auto pay -> default yes
+
+once domain is purchased and verified, switch off auto-renew
+switch off auto pay for this in UPI app too..
+
+Root Servers
+===============
+13 root servers across the world. 13 locations -> there are backups too
+ICANN -> Internet corporation for assigned names and numbers
+
+joindevops.com -> TLD
+
+Top level domain -> .com
+
+.org, .in, .uk, .com, .net, .us, .edu, .tv, .ai, .online
+
+TLD Owner ->
+joindevops.com -> verisign
+godaddy -> domain manager
+
+Who is TLD -> domain owners
+
+120/- -> 100rs .com owner
+
+name, address, phone number -> verisign -> joindevops.com -> siva
+
+TLD -> Root servers -> joindevops.com 
+
+Nameservers -> who is managing the domain
+==============
+ns1.dns-parking.com
+ns2.dns-parking.com
+
+hostinger -> TLD -> Root servers
+
+daws88s.online -> 44.28.236.35
+
+.in -> Indian government
+.ai -> Anguilla government -> infra management for this domain
+
+.siva -> Root servers -> too many checks
+brokers -> high commission
+
+if someone purchase joindevops.siva -> collect all details -> name, address, ph number, email, payment info, nameservers, etc.. -> update TLD -> Nameservers -> Root servers
+
+allocate nameservers -> pay to .siva owner
+
+hostinger responsibility -> nameservers, domain manage
+
+ibomma.com
+
+domain registars -> local provider -> entire information including payment details
+he transferred domain another local cloud
+
+nameservers transfer -> hostinger -> AWS
+
+TTL -> Time to live -> How much time in Cache
+
+1 day
+
+before 2 days, reduce TTL to around 1min
+max 1 day
+
+change in IP address -> 1sec
+30min -> 1hour
+
+Record types
+============
+A -> Ipv4 address
+NS -> nameservers, who is managing domain
+CNAME -> points to another domain
+TXT -> for domain verification
+AAAA -> IPv6
+MX -> mail records
+SOA -> service of authorisation
+
+
+[Unit]
+Description=Expense Backend Service
+After=network.target
+
+[Service]
+User=expense
+Environment=DB_HOST=db.daws88s.online
+Environment=DB_USER=expense
+Environment=DB_PWD=ExpenseApp@1
+Environment=DB_DATABASE=transactions
+ExecStart=/bin/node /app/index.js
+SyslogIdentifier=backend
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
+proxy_http_version 1.1;
+proxy_set_header Host              $host;
+proxy_set_header X-Real-IP         $remote_addr;
+proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;
+
+location /api/ {
+    proxy_pass http://backend.daws88s.online:8080/;
+}
+
+location /health {
+    stub_status on;
+    access_log off;
+}
+
+frontend.daws88s.online
+
+daws88s.online
+
+http://daws88s.online/api/transaction
+
+/usr/share/nginx/html
+/etc/nginx
+/var/log/nginx
+
+117.200.16.199 - - [13/May/2026:03:12:05 +0000] "POST /api/transaction HTTP/1.1" 201 44 "http://daws88s.online/" "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36" "-"
+
+HTTP Status codes
+==================
+Frontend -> backend
+
+2XX -> Success
+4XX -> client side error
+5XX -> server side error
