@@ -1,0 +1,45 @@
+loops
+======
+
+for (int i=0; i<5; i++){
+
+	print i;
+}
+
+script.sh mysql nginx
+
+for <expression>
+do
+	statements
+done
+
+sh loop.sh mysql nginx
+
+2026-05-25 08:34:44 INFO Installing Mysql
+
+R -> 31
+G -> 32
+Y -> 33
+
+\e[<code>m
+
+error handling
+============
+1. expected error
+2. unexpected error
+
+create a sg with name as roboshop-common roboshop-mongodb
+
+
+1. script should run with root access
+
+sed editor -> stream line editor
+
+i -> insert before line
+a -> insert after line
+s -> substitute
+d -> delete
+c -> change
+/pattern/d -> pattern match delete
+
+sh roboshop.sh mongodb redis mysql rabbitmq
