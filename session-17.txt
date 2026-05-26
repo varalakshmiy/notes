@@ -1,0 +1,40 @@
+name -> optional
+ami -> mandatory
+sg-id -> mandatory
+key -> optional
+disk -> mandatory
+instance-type -> mandatory
+
+aws configure -> configure access, secret key, region
+
+1. instance launch
+2. creating route53 records
+
+1. launch the instance -> instance id
+	describe the instance to get ip address
+2. get the ip address
+	if frontend, we need public
+	daws90s.shop -> frontend public ip
+	else
+		component-name.daws90s.shop -> private ip
+		
+aws ec2 run-instances \
+    --image-id ami-0220d79f3f480ecf5 \
+    --instance-type t3.micro \
+    --security-groups roboshop-common \
+	--tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Test}]' \
+	--query 'Instances[0].InstanceId' \
+    --output text
+
+i-0554c8faea8f96305
+
+sh roboshop.sh mongodb redis
+
+irrespective of the number of times we run the script we should get same result -> idempotency
+
+mongosh "mongodb://localhost:27017" --eval "db.getSiblingDB('catalogue').getCollectionInfos({name: 'products'})"
+
+mongosh --host mongodb.daws90s.shop --eval "db.getSiblingDB('catalogue').getCollectionInfos({name: 'products'})"
+
+mongosh --host mongodb.daws90s.shop --eval "db.getMongo()"
+
