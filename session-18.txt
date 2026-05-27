@@ -1,0 +1,23 @@
+create or destroy
+check instance status
+if create
+	check whether instance is already running or not
+	if running say already running
+		if not running create and update r53 record
+if destroy
+	check instance status, if not found. then it means already destroyed
+	if found, then destroy
+	
+sh roboshop.sh create/destroy mongodb redis ....
+
+1. atleast 2 parameters. create/destroy <instance-name>
+2. first parameter should be create/destroy
+
+aws ec2 describe-instances --filters "Name=tag:Name,Values=roboshop-$instance" "Name=instance-state-name,Values=running" --query "Reservations[0].Instances[0].InstanceId" --output text
+
+cities
+
+if cities schema already exist, means data loaded
+if not exist, then load the data
+
+mysql -h mysql.daws90s.shop -u root -pRoboShop@1 -e "use cities"
