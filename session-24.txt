@@ -1,0 +1,15 @@
+ansible.cfg
+============
+1. ANSIBLE_CONFIG
+2. current working directory
+3. ~/.ansible.cfg (in the home directory)
+4. default
+
+
+protected-mode yes
+protected-mode no
+
+template
+=========
+keys -> fill values
+
