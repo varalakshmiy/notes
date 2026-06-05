@@ -1,0 +1,29 @@
+ansible roles
+=============
+it is a proper directory structure of creating and manging playbooks and reusing playbooks. we breakdown playbooks into multiple components like tasks, vars, files, templates, dependencies, handlers, etc. by default ansible loads main.yaml in these directories
+
+roles
+	catalogue
+		tasks/
+			main.yaml
+		vars/
+			main.yaml
+		files/
+		templates/
+		handlers/ 
+		meta/
+			main.yaml
+		defaults/  
+            main.yml
+		library/ 
+        module_utils/
+        lookup_plugins/
+		
+Searched 
+/home/ec2-user/roboshop-ansible-v2/roles/mongodb/files/mongo.repo
+/home/ec2-user/roboshop-ansible-v2/files/mongo
+/home/ec2-user/roboshop-ansible-v2/roles/mongodb/mongo.repo
+/home/ec2-user/roboshop-ansible-v2/roles/mongodb/tasks/files/mongo.repo
+/home/ec2-user/roboshop-ansible-v2/roles/mongodb/tasks/mongo.repo
+/home/ec2-user/roboshop-ansible-v2/files/mongo.repo
+/home/ec2-user/roboshop-ansible-v2/mongo.repo
