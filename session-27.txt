@@ -1,0 +1,17 @@
+import_role
+include_role
+
+pip3.9 install ansible-core
+
+1. tags will not be respected and cascaded by include_role, but import_role will respect the tags
+2. import_role parse the playbook before execution, include_role parse the playbook at the time of execution
+3. condition applied at import_role applies to all the tasks. include_role role does not care about conditions
+4. You cannot use loops on 'import_role' statements. You should use 'include_role' instead
+
+ansible vault
+=============
+ansible-vault create vault.yaml
+
+ansible vault -> aws secrets manager/ aws parameter store
+
+PaaS
