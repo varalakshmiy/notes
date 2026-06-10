@@ -87,7 +87,8 @@ http://32.197.241.39:8080/transaction/1 -> GET -> give me transaction with ID 1
 
 https://manabadi.com/results/ssc/2026/20260988 -> GET
 
-
+nginx:
+------
 Reverse proxy server
 ====================
 proxy -> on behalf of someone
@@ -116,12 +117,12 @@ reverse proxy
 
 /usr/share/nginx/html -> we need to place our HTML content here
 index.html -> default page to load
-/etc/nginx/nginx.conf -> nginx settings are here
+ vim /etc/nginx/nginx.conf -> nginx settings are here
 
 /etc/sudoers -> sudoers file
 /etc/sudoers.d/ramesh
 
-/etc/nginx/default.d/expense.conf
+vim /etc/nginx/default.d/expense.conf=====default file created
 
 proxy_http_version 1.1;
 proxy_set_header Host              $host;
