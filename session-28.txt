@@ -1,0 +1,56 @@
+ansible-vault create valut.yaml
+
+ansible-playbook --ask-vault-pass
+ansible.cfg
+
+vault_file=<path-to-file>
+
+lookup (name: region: )
+
+code + configuration(confidential, non-confidential)
+
+
+traffic increases -> servers will be created
+traffic decreases -> servers will be deleted
+
+10 -> 50
+
+dynamic inventory
+================
+in autoscaling environment, getting hosts manually is difficult, so we can use ansible to query the desired instances through aws plugin with filters required
+
+parellel execution
+================
+forks can be used to inform ansible how many servers it can connect parellely
+
+10 servers, forks 2 -> one time execution...
+
+ansible-galaxy -> package manager for ansible, we can install collections using this, it fetches from ansible-galaxy repository
+
+we can also to intialise role with proper structure
+
+ansible tower -> ansible automation controller
+yes we are using, we have inventories, projects and templates already created, whenever there is a change in project we change the code, sync project then launch the template
+
+each playbook is one template, execution of playbook is job
+
+ansible-playbook -i inventory.ini -e 'instances=["mysql","mongodb"]' roboshop.yaml
+
+can we use ansible to create infra in cloud?
+ansible cant have state(memory). so managing infra with ansible is not right option, IaaC tools have state, they are right options to manage infra
+
+terraform -> creating and managing servers
+ansible -> connect with server and configure it
+
+IaaC -> terraform
+=====
+1. version control infra code
+2. consistent infra -> DEV, UAT, PROD, etc.
+3. Cost optimisation because we can easily create when required and destroy when not required
+4. Reusable infra -> Modules, we can use same code to create infra across different project
+5. CRUD -> inventory management
+6. Dependency management -> 
+
+ansible -> AWS plugin -> connect with AWS
+terraform -> provider -> AWS/Azure/GCP, GitHub, etc..
+
