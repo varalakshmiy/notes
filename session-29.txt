@@ -1,0 +1,63 @@
+Provider is like plugin that tells terraform how to interact with platform API
+
+everything is called block in terraform
+
+{
+
+}
+
+HCL -> Hashicorp configuration language
+
+resources, data, variables, output, locals, etc...
+
+resource "type_of_resource" "name" {
+	
+}
+
+terraform init -> initialise terraform, downloads provider and create lock file
+terraform plan -> understand the resource definition and give us plan whether creating or updating or destroying
+
+terraform apply -> create/update/destroy the resources based on the files
+terraform destroy -auto-approve
+
+variables and data types
+========================
+int i = 0 
+DRY, you can replaced hardcoded values with variables.
+
+variable "name_of_the_variable" {
+	type = string
+	default = "terraform"
+}
+
+1. default values
+2. env variables -> export TF_VAR_<var_name>
+3. terraform.tfvars -> 
+4. cmd line
+
+prefernce
+=========
+default -> t3.micro
+env -> t3.small
+terraform.tfvars -> t3.medium
+cmd -> t3.large
+
+1. cmd
+2. terraform.tfvars
+3. env variables
+4. default
+5. prompt
+
+expression ? "true-value" : "false-value"
+
+loops
+=====
+1. count loop
+2. for loop
+3. dynamic loop
+
+count -> list based loops
+===== 
+count.index 
+
+roboshop-dev-mongodb
