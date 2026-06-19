@@ -1,0 +1,27 @@
+naming convention
+================
+project-env
+
+VPC
+IGW
+Subnets
+	public -> 10.0.1.0/24, 10.0.2.0/24
+	private -> 10.0.11.0/24, 10.0.12.0/24
+	database -> 10.0.21.0/24, 10.0.22.0/24
+Route tables
+	public
+	private
+	database
+Route table and Subnet associations
+elastic ip
+
+VPC Peering
+============
+2 villages
+CIDR -> Pincode
+1. 2 VPC should have diff CIDR
+
+same account same region diff vpc
+same account diff region diff vpc
+diff account same region diff vpc
+diff account diff region diff vpc
