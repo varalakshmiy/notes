@@ -122,6 +122,7 @@ $2=Iran
 script started executing at: timestamp_start
 
 script completed at: timestamp_end
+>date +%s
 
 time took = timestamp_end-timestamp_start
 
