@@ -1,0 +1,47 @@
+VPC
+IGW
+Subnets
+	Public
+	Private
+	Database
+Route tables
+	Public
+	Private
+	Database
+Route tables and subnets associations
+EIP
+NAT
+Routes
+VPC Peering with default VPC
+Routes
+
+module will not have provider
+project repos should have providers, call the module through source
+send the required variable values
+
+tags -> Project, environment, terraform, project-environment-some-name
+		project-environment=common_name
+roboshop-dev -> requestor
+default -> acceptor
+
+roboshop-dev routetables for example public should have default VPC as destination and route through peering
+default vpc routetable should have roboshop-dev VPC destination through peering
+
+Project infra -> one time
+Application infra -> frequent changes
+
+SSM parameter store -> keep configuration here
+
+subnet-123, subnet-xyz -> comma seperated values
+
+list -> string
+
+roboshop-dev-mongodb
+roboshop-dev-redis
+
+add gitignore
+rm -rf .git
+git init
+git branch -M main
+git remote add origin https://github.com/daws-90s/roboshop-dev-infra.git
+git add . ; git commit -m "terraform"; git push origin main

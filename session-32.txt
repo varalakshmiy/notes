@@ -1,0 +1,91 @@
+How to create infra in multiple env using terraform?
+
+workspaces
+==========
+terraform.workspace -> prod
+
+workspace == environment
+
+roboshop-dev-workspace -> t3.micro
+roboshop-prod-workspace -> t3.small
+
+roboshop-dev-workspace
+roboshop-prod-workspace
+
+we have map of keys as environment and values
+now I am in prod, if I query with this key, I can get value
+
+terraform creates seperate folders in s3 bucket for diff env
+
+advantages
+==========
+same code for diff env
+consistent infra across env
+
+disadvantages
+===========
+1. state file stores in single, no real seperation of diff accounts
+2. completely depends on terraform.workspace variable, code becomes complex over time
+3. accidental changes from dev to prod
+
+terraform workspace is not recommended for multiple env
+
+tfvars
+=======
+
+1. cmd
+2. terraform.tfvars
+3. env
+4. default values
+5. prompt
+
+we can use diff buckets for diff env, we maintain diff values for diff env like dev.tfvars prod.tfvars uat.tfvars
+
+advantages
+==========
+code reuse
+
+disadvantages
+==========
+terraform init -reconfigure=prod/backend.tf
+terraform apply -auto-approve -var-file=dev/dev.tfvars
+
+accidental changes in prod with dev values
+
+workspace, tfvars both appraoches are very risky, env are not really isolated, there is always high risk accidental changes in PROD.
+
+
+roboshop-infra-dev -> seperate bucket, seperate codebase
+roboshop-infra-prod -> seperate bucket, seperate codebase
+
+no risk of accidental changes, clear seperation
+
+disadvantages
+disadvantages
+=============
+repeated code
+
+terraform modules -> DRY
+
+functions -> common.sh
+calling functions in common.sh
+
+ansible -> roles
+we are including or importing roles when required
+
+naming convention
+=================
+1. roboshop-dev-cart-instance
+2. roboshop-dev-cart
+
+1. don't repeat service type in the name
+2. human reference use -, internal reference use _
+3. keep tags at the end
+4. use plural name for plural, singular name for single items
+
+modules
+========
+
+1. centralised approach to enforcing similar best standards across all projects
+2. code reuse, DRY
+3. easy maintainance and updates

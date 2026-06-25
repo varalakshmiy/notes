@@ -1,0 +1,98 @@
+1. 10 instances
+2. each instance has its own SG and common SG
+3. R53 records with private ip for every instance and one more record with frontend public IP
+
+project = roboshop
+environment = dev
+components
+
+roboshop-dev-mongodb -> EC2 or SG
+
+mongodb-dev.daws90s.shop
+roboshop-dev.daws90s.shop -> frontend public IP
+
+outputs
+========
+output "name_of_the_output" {
+	value = 
+}
+
+functions
+=========
+takes input and does one task, provides output... we can call functions whenever we required...
+
+we cant create custom functions, we must use terraform default functions
+
+we got a list of items, we need to check a element is exist or not...
+
+contains(["us-east-1", "us-west-2", "eu-west-1"], "us-east-1")
+
+contains(var.instances, "frontend")
+
+index(var.instances, "frontend") 
+
+terraform default lifecycle -> destroy first and create next in case of changes
+
+1. SG create
+2. Instance create and attach SG
+
+SG name is changed
+terraform thinks to destroy first and recreate next with new name
+
+
+terraform creates first, modify instance SG and then destroy old SG
+
+join(" ", ["Sivakumar","Reddy","Mettukuru"])
+
+split(" ", "Sivakumar Reddy Mettukuru")
+
+Project = Roboshop
+Environment = dev
+
+merge(
+	{
+		a="b"
+		c="d"
+	}, 
+	{
+		e="f"
+		c="z"
+	}
+)
+
+a=b, c=z, e=f
+
+length
+contains
+index
+merge
+lookup
+
+for_each
+=========
+each -> special variable
+each.key and each.value
+each.key = mongodb
+each.value = {
+      "instance_type" = "t3.micro"
+    }
+	
+contains(keys(var.instances), "frontend")    # Returns true
+
+aws_instance.roboshop
+
+count -> list, count.index
+for_each -> map, each, each.key and each.value
+
+ansible server -> node
+
+password based ec2-user and DevOps321
+
+we can create one user for ansible to connect key based
+
+1. create user -> useradd ansible
+2. go to ansible home dir
+	mkdir .ssh -> 700, ansible is the owner and group
+	.ssh/authorized_keys -> pub key, 600
+3. give private key to ansible server
+4. we can configure private key path in ansible.cfg

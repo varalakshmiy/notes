@@ -1,0 +1,132 @@
+VPC
+====
+Virtual private cloud is like a data center where we can create resources related to our project in an isolated space. No one will have access except us.
+
+subnets -> we create logical partitions in our VPC for better maintainance and security.
+Internet gateway -> it is like modem, to get the connections from internet to VPC.
+
+IPv4 address -> 32 bits
+
+pincode == CIDR (Classless inter domain routing)
+10.0.0.0/16
+
+unary system -> 1 11, 111, 1111, 11111
+decimal system -> 0 1 2 3 4 5 6 7 8 9
+
+199
+a number has facevalue and placevalue
+base 10
+199 -> 9*10^0 + 9*10^1 + 1*10^2
+	  = 9	  + 90     + 100
+	  = 199
+	  
+binary system -> 0 1
+base 2
+
+1011 -> 1*2^0 + 1*2^1 + 0*2^2 + 1*2^3
+     = 1+2+0+8
+	 = 11
+4 octates, each octate contains 8 bits.
+
+192.168.1.5
+128	64	32	16	8	4	2	1
+-	-	-	-	-	-	-	-
+1   1	0	0	0	0	0	0 -> 192
+
+1	0	1	0	1	0	0	0 -> 168
+
+0	0	0	0	0	0	0	1 -> 1
+
+0	0	0	0	0	1	0	1 -> 5	
+
+11000000.10101000.00000001.00000101
+
+0.0.0.0 -> 255.255.255.255
+
+0
+-
+1 -> 2^1
+-
+
+-	-
+0	0
+0	1
+1	0 -> 2^2
+1	1
+
+-	-	-
+0	0	0
+0	0	1
+0	1	0
+0	1	1 -> 2^3
+1	0	0
+1	0	1
+1	1	0
+1	1	1
+
+32 bits -> 2^32 -> 4billion = 4294967296
+
+10.0.0.0/16 -> first 16 bits are reserved for network, next 16 bits are reserved for host
+
+10.0 -> fix
+16 bits -> 2^16 -> 1024*64 -> 65,536
+
+10.0.0.0
+10.0.0.1
+10.0.0.2
+.
+.
+.
+10.0.0.255
+
+10.0.1.0
+.
+.
+.
+10.0.1.255
+
+10.0.255.255
+
+/16 to /26
+
+subnet
+=======
+10.0.0.0/24 -> 24 bits for network, 8 bits for host
+
+10.0.0.0
+10.0.0.1
+.
+.			=> 256 hosts
+.
+10.0.0.255
+
+10.0.1.0/24 -> private
+10.0.11.0/24 -> database
+
+routes are like roads, we can control them through route table
+
+public route table
+private route table
+database route table
+
+10.0.0.0/16
+
+10.0.0.0 -> 10.0.255.255
+
+subnets which has route to internet gateway are called as public subnets. remaining are called private subnets
+
+VPC
+IGW and attach to VPC
+Subnets -> public, private and database
+min 2 AZ -> HA
+Route tables -> public, private and database
+Route table and subnet associations
+
+NAT Gateway
+
+private subnet and database subnet instances does not have internet. incoming connections are restricted. only within VPC instances are allowed to connect, not outside
+
+instances wants to install or update something -> outbound/egress traffic
+
+NAT Gateway is for egress traffic, private subnets and database subnets will have route to nat gateway
+NAT Gateway requires elastic ip.
